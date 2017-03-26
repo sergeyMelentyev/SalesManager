@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                     <label for="emailInput">Адрес электронной почты</label>
-                    <input class="form-control" type="email" name="emailAddress"
+                    <input class="form-control" type="email" name="email"
                            id="emailInput" value="" placeholder="your.email@address.com">
                 </div>
                 <div class="radio">
@@ -59,9 +59,16 @@
             </form>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>Принятые заказы:</h4>
+            <div data-coffee-order="checklist"></div>
+        </div>
+    </div>
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="scripts/checklist.js" charset="UTF-8"></script>
 <script src="scripts/formhandler.js" charset="UTF-8"></script>
 <script src="scripts/datastore.js" charset="UTF-8"></script>
 <script src="scripts/truck.js" charset="UTF-8"></script>

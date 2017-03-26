@@ -1,10 +1,17 @@
 (function (global) {
     "use strict";
 
+    var FORM_SELECTOR = '[data-coffee-order="form"]';
+
     var App = window.App;
     var Truck = App.Truck;
     var DataStore = App.DataStore;
+    var FormHandler = App.FormHandler;
 
-    global.myTruck = new Truck("001", new DataStore());
+    var myTruck = new Truck("001", new DataStore());
+    global.myTruck = myTruck;
+    var formHandler = new FormHandler(FORM_SELECTOR);
+
+    formHandler.addSubmitHandler(myTruck.createOrder.bind(myTruck));
 
 })(window);

@@ -12,11 +12,16 @@
             throw new Error("Could not find elements with selector: " + selector);
 
     }
-    FormHandler.prototype.addSubmitHandler = function () {
+    FormHandler.prototype.addSubmitHandler = function (fn) {
         this.$formElement.on("submit", function (event) {
             event.preventDefault();
-            var data = $(this).serializeArray();
-            console.log(data);
+            var data = {};
+            $(this).serializeArray().forEach(function (item) {
+                data[item.name] = item.value;
+            });
+            fn(data);
+            this.reset();
+            this.elements[0].focus();
         });
     };
 
