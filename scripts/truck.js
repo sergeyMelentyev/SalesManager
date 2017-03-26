@@ -5,7 +5,7 @@
     /* constructor */
     // assign parameters as properties to the newly constructed instance
     function Truck(truckId, datastore) {
-        this.truckId = truckId; // email address will be used as key
+        this.truckId = truckId;     // email address will be used as key
         this.datastore = datastore;       // reference to new datastore object
     }
 
