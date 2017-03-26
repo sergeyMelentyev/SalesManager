@@ -10,7 +10,7 @@
 <body class="container">
 
 <header>
-    <h1>Order Manager</h1>
+    <h1>Менеджер заказов</h1>
 </header>
 
 <section>
@@ -18,44 +18,44 @@
         <div class="panel-body">
             <form data-coffee-order="form">
                 <div class="form-group">
-                    <label for="coffeeOrder">Coffee Order</label>
+                    <label for="coffeeOrder">Заказ кофе</label>
                     <input class="form-control" name="coffee" id="coffeeOrder" autofocus>
                 </div>
                 <div class="form-group">
-                    <label for="emailInput">Email</label>
+                    <label for="emailInput">Адрес электронной почты</label>
                     <input class="form-control" type="email" name="emailAddress"
                            id="emailInput" value="" placeholder="your.email@address.com">
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="size" value="short">Short</label>
+                        <input type="radio" name="size" value="short">Маленький</label>
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="size" value="tall" checked>Tall</label>
+                        <input type="radio" name="size" value="tall" checked>Большой</label>
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="size" value="grand">Grand</label>
+                        <input type="radio" name="size" value="grand">Гранд</label>
                     </label>
                 </div>
                 <div class="form-group">
-                    <label for="flavorShot">Flavor Shot</label>
+                    <label for="flavorShot">Добавить вкус</label>
                     <select id="flavorShot" class="form-control" name="flavor">
-                        <option value="">None</option>
-                        <option value="caramel">Caramel</option>
-                        <option value="almond">Almond</option>
-                        <option value="mocha">Mocha</option>
+                        <option value="">Не добавлять</option>
+                        <option value="caramel">Карамель</option>
+                        <option value="almond">Орех</option>
+                        <option value="mocha">Мокка</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="strengthLevel">Caffeine Ration</label>
+                    <label for="strengthLevel">Уровень кофеина</label>
                     <input name="strength" id="strengthLevel" type="range" value="30">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-                <button type="reset" class="btn btn-default">Reset</button>
+                <button type="submit" class="btn btn-default">Заказать</button>
+                <button type="reset" class="btn btn-default">Отмена</button>
             </form>
         </div>
     </div>

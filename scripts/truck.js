@@ -1,29 +1,26 @@
-"use strict";
-(function (window) {
-    var App = window.App || {};
+(function (global) {
+    "use strict";
 
-    /* constructor */
-    // assign parameters as properties to the newly constructed instance
-    function Truck(truckId, datastore) {
-        this.truckId = truckId;     // email address will be used as key
-        this.datastore = datastore;       // reference to new datastore object
+    var App = global.App || {};
+
+    function Truck(truckId, ds) {
+        this.truckId = truckId;
+        this.ds = ds;
     }
 
-    /* interface */
     Truck.prototype.createOrder = function (order) {
-        this.datastore.add(order['emailAddress'], order);
+        this.ds.add(order.email, order);
     };
     Truck.prototype.deliverOrder = function (customerId) {
-        this.datastore.remove(customerId);
+        this.ds.remove(customerId);
     };
     Truck.prototype.printOrders = function () {
-        var customerIdArray = Object.keys(this.datastore.getAll());
-        console.log("Truck #" + this.truckId + " has pending orders:");
+        var customerIdArray = Object.keys(this.ds.getAll());
         customerIdArray.forEach(function (id) {
-            console.log(this.datastore.get(id));
-        }.bind(this));
+            console.log(this.ds.get(id));
+        }, this);
     };
 
     App.Truck = Truck;
-    window.App = App;
+    global.App = App;
 })(window);

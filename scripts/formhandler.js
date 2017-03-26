@@ -1,32 +1,25 @@
-"use strict";
-(function (window) {
-    var App = window.App || {};
-    var $ = window.jQuery;
+(function (global) {
+    "use strict";
+
+    var App = global.App || {};
+    var $ = global.jQuery;
 
     function FormHandler(selector) {
         if (!selector)
-            throw new Error("No selector provided");
-
+            throw new Error("No selector provided.");
         this.$formElement = $(selector);
-
         if (this.$formElement.length === 0)
-            throw new Error("Could not find element with selector: " + selector);
-    }
+            throw new Error("Could not find elements with selector: " + selector);
 
-    FormHandler.prototype.addSubmitHandler = function (fn) {
-        this.$formElement.on('submit', function (event) {
+    }
+    FormHandler.prototype.addSubmitHandler = function () {
+        this.$formElement.on("submit", function (event) {
             event.preventDefault();
-            var data = {};
-            $(this).serializeArray().forEach(function (item) {
-                data[item.name] = item.value;
-            });
+            var data = $(this).serializeArray();
             console.log(data);
-            fn(data);
-            this.reset();
-            this.elements[0].focus();
         });
     };
 
     App.FormHandler = FormHandler;
-    window.App = App;
+    global.App = App;
 })(window);

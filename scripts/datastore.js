@@ -1,19 +1,14 @@
-"use strict";
-(function (window) {
-    var App = window.App || {};
+(function (global) {
+    "use strict";
 
-    /* constructor or object factory function */
-    // if called with 'new' operator, new obj 'DataStore' will be created
-    // with 'data' property and explicitly returned
-    // if called without 'new', 'data' property will be created and assign on 'App' obj
+    var App = global.App || {};
+
     function DataStore() {
         this.data = {};
     }
 
-    /* interface */
-    // instances created by a constructor have access to shared prototype property
-    DataStore.prototype.add = function (key, value) {
-        this.data[key] = value;
+    DataStore.prototype.add = function (key, val) {
+        this.data[key] = val;
     };
     DataStore.prototype.get = function (key) {
         return this.data[key];
@@ -26,5 +21,5 @@
     };
 
     App.DataStore = DataStore;
-    window.App = App;
+    global.App = App;
 })(window);
