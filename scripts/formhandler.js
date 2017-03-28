@@ -5,15 +5,12 @@
     var $ = global.jQuery;
 
     function FormHandler(selector) {
-        if (!selector)
-            throw new Error("No selector provided.");
+        if (!selector) throw new Error("No selector provided");
         this.$formElement = $(selector);
-        if (this.$formElement.length === 0)
-            throw new Error("Could not find elements with selector: " + selector);
-
+        if (this.$formElement.length === 0) throw new Error("No matching selectors");
     }
     FormHandler.prototype.addSubmitHandler = function (fn) {
-        this.$formElement.on("submit", function (event) {
+        this.$formElement.on('submit', function (event) {
             event.preventDefault();
             var data = {};
             $(this).serializeArray().forEach(function (item) {
@@ -27,4 +24,5 @@
 
     App.FormHandler = FormHandler;
     global.App = App;
+
 })(window);
